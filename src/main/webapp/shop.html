@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+
+	<title>Shop Page</title>
+	<link rel="stylesheet" href="edits/css/shop.css">
+	   <link rel="stylesheet" href="edits/css/cart.css">
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+	</script>
+	
+	<style>
+		body{
+		padding:10% 3% 10% 3%;
+		text-align:center;
+		}
+		img{
+			height:140px;
+				width:140px;
+		}
+		h1{
+		color: #32a852;
+		}
+		.mode {
+			float:right;
+		}
+		.change {
+			cursor: pointer;
+			border: 1px solid #555;
+			border-radius: 40%;
+			width: 20px;
+			text-align: center;
+			padding: 5px;
+			margin-left: 8px;
+		}
+		.dark{
+			background-color: #222;
+			color: #e6e6e6;
+		}
+	</style>
+	   <style>
+    </style>
+	<div style="display: flex; justify-content: flex-end; align-items: center; height: 50px; background-color: #f0f0f0;">
+  <p>  
+        <div class="cart-container">You have Cart(0) in </div>
+   <button onclick="location.href='cart.html'" id="cartbutton">Cart (0)</button></p>
+</div>
+
+<div style="display: flex; justify-content: flex-end; align-items: center; height: 50px; background-color: #f0f0f0;">
+  <p></p>
+</div>
+	
+</head>
+<body>
+
+	<div class="mode">
+		Modes:			
+		<span class="change">null</span>
+	</div>
+<!-- Script For AddToCart -->
+
+    <script type="text/javascript">
+        var cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.getElementById("cartbutton").innerHTML = "Cart (" + cartCount + ")";
+            document.getElementsByClassName("cart-container")[0].innerHTML = "You have " + cartCount + " item(s) in .";
+        }
+    </script>
+
+
+<div class="container">
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 1 - GH230</h2>
+
+  <button onclick="addToCart()">Buy</button>
+</div>
+
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 2 - GH214</h2>
+  <button onclick="addToCart()">Buy</button>
+</div>
+
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 3 - GH621</h2>
+  <button onclick="addToCart()">Buy</button>
+</div>
+
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 4 - GH210</h2>
+  <button onclick="addToCart()">Buy</button>
+</div>
+<div class="container">
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 5 - GH210</h2>
+  <button onclick="addToCart()">Buy</button>
+</div>
+
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item Category 2</h2>
+</div>
+
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 7 - GH221</h2>
+  <button onclick="addToCart()">Buy</button>
+</div>
+
+<div class="card" style="position: relative; width: 100%; height: 100%;">
+<img src="edits/img/pic1.jpg" alt="Example Image">
+  <h2>Item 8 - GH210</h2>
+  <button onclick="addToCart()">Buy</button>
+</div>
+
+<!-- Script For Dark Mode And Light Mode -->
+	<script>
+		$( ".change" ).on("click", function() {
+			if( $( "body" ).hasClass( "dark" )) {
+				$( "body" ).removeClass( "dark" );
+				$( ".change" ).text( "OFF" );
+			} else {
+				$( "body" ).addClass( "dark" );
+				$( ".change" ).text( "ON" );
+			}
+		});
+	</script>
+	
+	<!-- -Code For Transfering Post Cart - -->
+
+<form action="cart.html" method="POST">
+  <input type="hidden" name="addToCartFunction" value="var cartCount=0;function addToCart(){cartCount++;document.getElementById('cartbutton').innerHTML='Cart ('+cartCount+')';document.getElementsByClassName('cart-container')[0].innerHTML='You have '+cartCount+' item(s) in your cart.';}">
+  <input type="hidden" name="cartCount" value="0">
+</form>
+
+	
+</body>
+ <script  src="edits/js/#js"></script>
+</html>
+

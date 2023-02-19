@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="edits/css/cart.css">
+  </head>
+  <body>
+    <header>
+      <h1>Shopping Cart</h1>
+    </header>
+    <main>
+      <div class="product-list">
+        <h2>Product List</h2>
+        <ul>
+          <li><button onclick="addToCart()">Item 1</button></li>
+          <li><button onclick="addToCart()">Item 2</button></li>
+          <li><button onclick="addToCart()">Item 3</button></li>
+        </ul>
+      </div>
+    </main>
+    <script type="text/javascript">
+      // Retrieve the value of the "cartCount" parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const cartCount = parseInt(urlParams.get('cartCount')) || 0;
+
+      // Set the initial value of the cart count
+      document.getElementById("cartbutton").innerHTML = "Cart (" + cartCount + ")";
+      document.getElementsByClassName("cart-container")[0].innerHTML = "You have " + cartCount + " item(s) in your cart.";
+
+      // Define the addToCart() function
+      function addToCart() {
+        cartCount++;
+        document.getElementById("cartbutton").innerHTML = "Cart (" + cartCount + ")";
+        document.getElementsByClassName("cart-container")[0].innerHTML = "You have " + cartCount + " item(s) in your cart.";
+      }
+    </script>
+  </body>
+</html>
+
